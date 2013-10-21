@@ -1,3 +1,5 @@
+runtime gvimrc
+
 syntax enable
 
 set t_Co=16
@@ -8,8 +10,6 @@ colorscheme solarized
 " Better tab switching
 " For C style comments
 
-inoremap /**    /**<CR>/<Esc>O
-inoremap /*<Space>  /*<Space><Space>*/ <Left><Left><Left><Left>
 set formatoptions+=ro
 
 " For loop abbreviation, could use improvement
@@ -40,14 +40,15 @@ inoremap {<BS>  <Nop>
 inoremap {<Space><BS>  <Nop>
 inoremap {<Del><BS> { 
 
-" Because its broken on gVim
-"inoremap <C-[> <Esc>
+inoremap /**    /**<CR>/<Esc>O
+inoremap /*<Space>  /*<Space><Space>*/ <Left><Left><Left><Left>
 
 " Remap 'jk' to escape, very quick :P
 inoremap jk <Esc>l
 
 " Reset hightlighting after search
 nnoremap <Leader>h :noh<return>
+
 " While typing, '\a' will move cursor to end of line in insert
 inoremap <Leader>a <Esc>A
 
