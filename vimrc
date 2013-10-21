@@ -78,9 +78,3 @@ set foldmethod=syntax
 set foldlevelstart=0
 
 set smartindent 
-
-lcd
-source .gvimrc
-source statusline.vim
-source tabline.vim
-source folding.vim
