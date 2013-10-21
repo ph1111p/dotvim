@@ -62,10 +62,10 @@ inoremap <Leader>}  <Esc>]}a
 set diffopt+=vertical
 
 " Set invisible characters
-set listchars=eol:¬,tab:\|\s
+let &listchars="eol:\<Char-0x00ac>"
 
 " Set formatting( tabs, column width, tabwidth, etc. ) 
-    
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4

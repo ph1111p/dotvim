@@ -1,4 +1,4 @@
-set fillchars:fold:·
+let &fillchars="fold:\<Char-0x00b7>"
 hi! link Folded FoldColumn
 
 "function! NeatFoldText()
