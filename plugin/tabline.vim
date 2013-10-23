@@ -1,4 +1,5 @@
 " Better tablines
+
 " Bail quickly if the plugin was loaded, disabled or compatible is set
 if (exists("g:loaded_tabline_vim") && g:loaded_tabline_vim) || &cp
   finish
@@ -18,7 +19,7 @@ function! Tabline()
     let s .= '%' . tab . 'T'
     let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
     let s .= ' ' . tab .':'
-    let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . ']' : '[No Name]')
+    let s .= (bufname != '' ? '['. pathshorten(fnamemodify(bufname, ":p:~:.")) . ']' : '[No Name]')
     
     let numtabwin = tabpagewinnr(tab, '$')
     let tabwinnum = ''
