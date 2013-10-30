@@ -1,18 +1,6 @@
 let &fillchars="fold:\<Char-0x00b7>"
-hi! link Folded FoldColumn
 
-"function! NeatFoldText()
-"    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*\/\*\*\\s*{{' . '{\d*\s*', '', 'g') . ' '
-"    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-"    let lines_count = v:foldend - v:foldstart + 1
-"    let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . '|'
-"    let foldchar = matchstr(&fillchars, 'fold:\zs.')
-"    let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-"    let foldtextend = lines_count_text . repeat(foldchar, 8)
-"    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-"    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) .foldtextend 
-"endfunction
-"set foldtext=NeatFoldText()
+"hi! link Folded FoldColumn
 
 if has("folding")
   set foldtext=FoldText()
@@ -54,10 +42,14 @@ if has("folding")
     let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
     let l:width = winwidth(0) - l:lpadding - l:infolen
 
-    let l:separator = ' … '
+	let l:separator=\<Char-0x22EF>
+	if has ("win32")
+		let l:separator = '�'
+	end if
+
     let l:separatorlen = strlen(substitute(l:separator, '.', 'x', 'g'))
     let l:start = strpart(l:start , 0, l:width - strlen(substitute(l:end, '.', 'x', 'g')) - l:separatorlen)
-    let l:text = l:start . ' … ' . l:end . ' '
+    let l:text = l:start . ' ' . l:separator . ' ' . l:end . ' '
 
     return l:text . repeat( foldchar, l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
   endfunction
