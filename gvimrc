@@ -12,7 +12,11 @@ if has ('gui_running')
     set guioptions-=T
 
     " Set font
-    set guifont=Monaco:h12
+	if has ("win32")
+		set guifont=Consolas:h10
+	else
+		set guifont=Monaco:h12
+	endif
 
     " Get rid of annoying cursor behavior
     set guicursor=n-v-c-i-ci:block-Cursor

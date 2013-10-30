@@ -1,10 +1,10 @@
 """"""""""""""""""""
-" Initialization
+" Initialization {{{ 
 """"""""""""""""""""
-runtime gvimrc
+"}}}
 
 """"""""""""""""""""
-" Appearance
+" Appearance {{{
 """"""""""""""""""""
 syntax enable
 colorscheme solarized
@@ -48,11 +48,13 @@ set nojoinspaces		" Use only 1 space after "." when joining lines instead of 2
 " Folding settings
 set foldmethod=syntax
 set foldlevelstart=0
+}}}
+
 """""""""""""""""""
-" Editing
+" Editing {{{
 """""""""""""""""""
-"
-" Insert mode
+" 
+" Insert mode {{{
 "
 " Remap 'jk' to escape, very quick :P
 inoremap jk <Esc>l
@@ -90,9 +92,10 @@ inoremap {<Del><BS> {
 
 inoremap /**	/**<CR>/<Esc>O
 inoremap /*<Space>	/*<Space><Space>*/ <Left><Left><Left><Left>
+}}}
 
 "
-" Normal mode
+" Normal mode {{{
 "
 " Reset hightlighting after search
 nnoremap <Leader>h	:noh<return>
@@ -102,27 +105,27 @@ nnoremap <Leader>l	:set list!<return>
 nnoremap <Leader>o	o<Esc>
 nnoremap <Leader>O	O<Esc>
 " Scroll down/up
-"nnoremap <C-j>		<C-E>
-"nnoremap <C-k>		<C-Y>
 
-" Work in progress.. delete following comment and put above
-" nnoremap <S-h>		d$O<Esc>pu
+" Underlines
+nnoremap <Leader>= yypVr=
+nnoremap <Leader>- yypVr-
+nnoremap <Leader>= yypVr=
 
 " Delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j     
 endif
+}}}
+
 "
-" Visual
+" Visual {{{
 "
 " Insert C style comments 
-"vmap <Leader>cc :s/^\s*/
-vmap <Leader>cc :s/^\(\t*\w\)/\*\1/<CR>
-"vmap <leader>cc :s/^/\*/<cr>
-"vmap <leader>co :s/^\*//<cr>
+}}}
+}}}
 
 """"""""""""""""""""
-" Searching
+" Searching {{{
 """"""""""""""""""""
 set ignorecase " Make searches case-insensitive...
 set smartcase  " ...unless they contain at least one uppercase character
@@ -132,4 +135,4 @@ inoremap <Leader>(	<Esc>[(a
 inoremap <Leader>)	<Esc>])a
 inoremap <Leader>{	<Esc>[{a
 inoremap <Leader>}	<Esc>]}a
-
+}}}
