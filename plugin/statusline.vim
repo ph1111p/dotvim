@@ -8,7 +8,6 @@ let g:loaded_status_vim = 1
 set laststatus=2
 
 " Set insert/everything else highlight color
- 
 set statusline=[%F]
 set statusline+=%y
 set statusline+=%m
@@ -20,7 +19,7 @@ set statusline+=\ Col:[%2c]
 set statusline+=\ Char[0x%B]
 
 " Change color of the status line on insert
-hi link User1 WildMenu
+hi link User1 CursorIM
 hi link User2 StatusLine
 
 if version >= 700

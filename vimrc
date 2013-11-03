@@ -1,39 +1,54 @@
-""""""""""""""""""""
+" Clean this fucking thing up
+
+" Vundle {{{
+"============
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+"" My Bundles here:
+" original repos on github
+"Bundle 'scrooloose/syntastic'
+Bundle 'junegunn/vim-easy-align'
+
+" git repos on your local machine (ie. when working on your own plugin)
+"Bundle 'file:///Users/gmarik/path/to/plugin'
+
+filetype plugin indent on     " required!
+" }}}
+
 " Initialization {{{ 
 """"""""""""""""""""
+
 "}}}
 
-""""""""""""""""""""
 " Appearance {{{
 """"""""""""""""""""
+
+colorscheme obsidian2
 syntax enable
-colorscheme solarized
 set number				" Line numbers
 set showtabline=2		" Always show tab line
 
 " " Split windows below and right instead of above and left
 set splitbelow splitright
 
-" Open help in a vertical split instead of the default horizontal split
-cabbrev h <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'h')<cr>
-cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
-
 set diffopt+=vertical	" 'Diff'ing always set to vertical
 
 " Set invisible characters
 let &listchars="eol:\<Char-0x00ac>,tab:▸\ "
 
-" Scrolling gives room at top & bottom
-"set scrolloff=10
+" Scrolling gives one line at top & bottom
+set scrolloff=1
 
-" Hold Ctrl to center screen while scrolling 
-nnoremap <C-j> jzz
-nnoremap <C-k> kzz
-
+"" Formating 
 "
-" Formating 
-"
-
 " Set formatting( tabs, column width, tabwidth, etc. ) 
 set tabstop=4
 set softtabstop=4
@@ -48,16 +63,12 @@ set nojoinspaces		" Use only 1 space after "." when joining lines instead of 2
 " Folding settings
 set foldmethod=syntax
 set foldlevelstart=0
-}}}
+" }}}
 
-"""""""""""""""""""
 " Editing {{{
 """""""""""""""""""
-" 
-" Insert mode {{{
+"" Insert mode {{{
 "
-" Remap 'jk' to escape, very quick :P
-inoremap jk <Esc>l
 " move cursor to end of line 
 inoremap <Leader>a <Esc>A
 " line below
@@ -90,49 +101,60 @@ inoremap {<BS>	<Nop>
 inoremap {<Space><BS>  <Nop>
 inoremap {<Del><BS> { 
 
+"" Commenting
+"
 inoremap /**	/**<CR>/<Esc>O
 inoremap /*<Space>	/*<Space><Space>*/ <Left><Left><Left><Left>
-}}}
+" }}}
 
+"" Normal mode {{{
 "
-" Normal mode {{{
-"
-" Reset hightlighting after search
-nnoremap <Leader>h	:noh<return>
-" Show invisibles
-nnoremap <Leader>l	:set list!<return>
 " line below/above
 nnoremap <Leader>o	o<Esc>
 nnoremap <Leader>O	O<Esc>
-" Scroll down/up
-
 " Underlines
-nnoremap <Leader>= yypVr=
-nnoremap <Leader>- yypVr-
-nnoremap <Leader>= yypVr=
+nnoremap <Leader>= yypv$r=o<Esc>
+inoremap <Leader>= <Esc>yypv$r=o
+nnoremap <Leader>- yypv$r-o<Esc>
+inoremap <Leader>- <Esc>yypv$r-o
 
 " Delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j     
 endif
-}}}
+" }}}
 
-"
-" Visual {{{
+"" Visual {{{
 "
 " Insert C style comments 
-}}}
-}}}
+" }}}
+" }}}
 
-""""""""""""""""""""
 " Searching {{{
 """"""""""""""""""""
 set ignorecase " Make searches case-insensitive...
 set smartcase  " ...unless they contain at least one uppercase character
 
 " Navigation of parenthesis while in insert & normal
-inoremap <Leader>(	<Esc>[(a
-inoremap <Leader>)	<Esc>])a
-inoremap <Leader>{	<Esc>[{a
-inoremap <Leader>}	<Esc>]}a
-}}}
+" }}}
+
+" General hotkeys {{{
+""""""""""""""""""""
+" Remap 'jk' to escape, very quick :P
+inoremap jk <Esc>l
+
+" Reset hightlighting after search
+nnoremap <Leader>h	:noh<return>
+
+" Show invisibles
+nnoremap <Leader>l	:set list!<return>
+
+" Open help in a vertical split instead of the default horizontal split
+cabbrev h <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'h')<cr>
+cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
+
+" Open/source vimrc 
+
+" }}}
+
+vim: foldmethod=marker 
