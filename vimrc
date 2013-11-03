@@ -1,28 +1,28 @@
 " Clean this fucking thing up
 
-" Vundle {{{
-"============
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-"" My Bundles here:
-" original repos on github
-"Bundle 'scrooloose/syntastic'
-Bundle 'junegunn/vim-easy-align'
-
-" git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
-
-filetype plugin indent on     " required!
-" }}}
-
+"" Vundle {{{
+""============
+"set nocompatible               " be iMproved
+"filetype off                   " required!
+"
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
+"
+"" let Vundle manage Vundle
+"" required! 
+"Bundle 'gmarik/vundle'
+"
+""" My Bundles here:
+"" original repos on github
+""Bundle 'scrooloose/syntastic'
+"Bundle 'junegunn/vim-easy-align'
+"
+"" git repos on your local machine (ie. when working on your own plugin)
+""Bundle 'file:///Users/gmarik/path/to/plugin'
+"
+"filetype plugin indent on     " required!
+"" }}}
+"
 " Initialization {{{ 
 """"""""""""""""""""
 
@@ -117,6 +117,9 @@ nnoremap <Leader>= yypv$r=o<Esc>
 inoremap <Leader>= <Esc>yypv$r=o
 nnoremap <Leader>- yypv$r-o<Esc>
 inoremap <Leader>- <Esc>yypv$r-o
+
+" Comments for various languages
+autocmd Filetype c nnoremap <buffer> <localleader>c I//<esc>
 
 " Delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
