@@ -25,6 +25,7 @@
 "
 " Initialization {{{ 
 """"""""""""""""""""
+" Open bitlist
 
 "}}}
 
@@ -67,16 +68,10 @@ set foldlevelstart=0
 
 " Editing {{{
 """""""""""""""""""
-"" Insert mode {{{
-"
 " move cursor to end of line 
 inoremap <Leader>a <Esc>A
-" line below
-inoremap <Leader>o <Esc>o
-inoremap <Leader>O <Esc>O
 
-" Closing brackets, parenthesis, etc
-"" Worth making into function?
+"" Closing brackets, parenthesis, etc, Worth making into function?
 inoremap (		()<Left>
 inoremap (<Space>	   (<Space><Space>)<Left><Left>
 inoremap (<CR>	(<CR>)<Esc>O
@@ -101,37 +96,42 @@ inoremap {<BS>	<Nop>
 inoremap {<Space><BS>  <Nop>
 inoremap {<Del><BS> { 
 
-"" Commenting
-"
+" C comment starters
 inoremap /**	/**<CR>/<Esc>O
 inoremap /*<Space>	/*<Space><Space>*/ <Left><Left><Left><Left>
-" }}}
 
-"" Normal mode {{{
-"
-" line below/above
-nnoremap <Leader>o	o<Esc>
-nnoremap <Leader>O	O<Esc>
+" Comments for various languages
+autocmd Filetype c nnoremap <buffer> <localleader>c		I//*<esc>
+autocmd Filetype c nnoremap <buffer> <localleader>nc	:s/\/\//<CR> :noh<CR>
+
+autocmd Filetype c vnoremap <buffer> <localleader>c		:s/^/\/\//<CR> :noh<CR>
+autocmd Filetype c vnoremap <buffer> <localleader>nc	:s/\/\//<CR> :noh<CR>
+
+autocmd Filetype vim nnoremap <buffer> <localleader>c	I"<esc>
+autocmd Filetype vim vnoremap <buffer> <localleader>c	:s/^/"/<CR> :noh<CR>
+
+"" Automatically open '.h' header for c files, if exists
+"autocmd BufAdd *.c :call OpenHeader()
+"function! OpenHeader()
+	"let h_file = substitute(expand('%:t'),".c",".h","")
+	"if filereadable( h_file )
+		"execute "vsplit " . h_file
+	"else
+		"echo "No .h file found"
+	"endif
+"endfunction
+
 " Underlines
 nnoremap <Leader>= yypv$r=o<Esc>
 inoremap <Leader>= <Esc>yypv$r=o
 nnoremap <Leader>- yypv$r-o<Esc>
 inoremap <Leader>- <Esc>yypv$r-o
 
-" Comments for various languages
-autocmd Filetype c nnoremap <buffer> <localleader>c I//<esc>
-
 " Delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j     
 endif
-" }}}
 
-"" Visual {{{
-"
-" Insert C style comments 
-" }}}
-" }}}
 
 " Searching {{{
 """"""""""""""""""""
@@ -143,6 +143,11 @@ set smartcase  " ...unless they contain at least one uppercase character
 
 " General hotkeys {{{
 """"""""""""""""""""
+" Open vimrc
+nnoremap <leader>mv	:e $MYVIMRC
+
+" Open netrw file explorer
+nnoremap <leader>o	:Explore<return>
 " Remap 'jk' to escape, very quick :P
 inoremap jk <Esc>l
 

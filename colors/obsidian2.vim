@@ -37,13 +37,11 @@ execute "hi Special guifg="     . s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Statement guifg="   . s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Number guifg="      . s:Colors[3]  . " guibg=" . s:Colors[12]
 execute "hi Boolean guifg="     . s:Colors[11] . " guibg=" . s:Colors[12]
-"execute "hi String guifg="      . s:Colors[5]  . " guibg=" . s:Colors[12]
 execute "hi String guifg="		. s:Colors[9]  . " guibg=" . s:Colors[12]
 execute "hi Character guifg="   . s:Colors[5]  . " guibg=" . s:Colors[12]
 execute "hi Title guifg="       . s:Colors[1]  . " guibg=" . s:Colors[12]
-execute "hi Todo guifg="     . s:Colors[11] . " guibg=" . s:Colors[13]
-"execute "hi Type guifg="      . s:Colors[5]  . " guibg=" . s:Colors[12]
-execute "hi Type guifg="      . s:Colors[3]  . " guibg=" . s:Colors[12]
+execute "hi Todo guifg="        . s:Colors[11] . " guibg=" . s:Colors[12] . " gui=underline"
+execute "hi Type guifg="        . s:Colors[3]  . " guibg=" . s:Colors[12]
 execute "hi Underline guifg="   . s:Colors[10] . " guibg=" . s:Colors[12]
 
 " Groups
