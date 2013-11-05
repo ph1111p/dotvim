@@ -101,7 +101,7 @@ inoremap /**	/**<CR>/<Esc>O
 inoremap /*<Space>	/*<Space><Space>*/ <Left><Left><Left><Left>
 
 " Comments for various languages
-autocmd Filetype c nnoremap <buffer> <localleader>c		I//*<esc>
+autocmd Filetype c nnoremap <buffer> <localleader>c		I//<esc>
 autocmd Filetype c nnoremap <buffer> <localleader>nc	:s/\/\//<CR> :noh<CR>
 
 autocmd Filetype c vnoremap <buffer> <localleader>c		:s/^/\/\//<CR> :noh<CR>
