@@ -18,7 +18,7 @@ if has ("gui_running")
 	if has ("win32")
 		set guifont=Consolas:h10
 	else
-		set guifont=Inconsolata:h14
+		set guifont=Inconsolata:h16
 	endif
 
 	" Get rid of annoying cursor behavior

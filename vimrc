@@ -1,40 +1,35 @@
 " Clean this fucking thing up
 
-"" Vundle {{{
-""============
-"set nocompatible               " be iMproved
-"filetype off                   " required!
-"
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-"
-"" let Vundle manage Vundle
-"" required! 
-"Bundle 'gmarik/vundle'
-"
-""" My Bundles here:
-"" original repos on github
-""Bundle 'scrooloose/syntastic'
-"Bundle 'junegunn/vim-easy-align'
-"
-"" git repos on your local machine (ie. when working on your own plugin)
-""Bundle 'file:///Users/gmarik/path/to/plugin'
-"
-"filetype plugin indent on     " required!
-"" }}}
-"
-" Initialization {{{ 
+" Vundle {{{
+"============
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+"" My Bundles here:
+" original repos on github
+Bundle 'junegunn/vim-easy-align'
+"Bundle 'godlygeek/csapprox'
+"Bundle 'xolox/vim-notes'
+
+" git repos on your local machine (ie. when working on your own plugin)
+"Bundle 'file:///Users/gmarik/path/to/plugin'
+
+filetype plugin indent on     " required!
+" }}}
+
+" Initialization & Appearance {{{ 
 """"""""""""""""""""
-" Open bitlist
-
-"}}}
-
-" Appearance {{{
-""""""""""""""""""""
-
 colorscheme obsidian2
 syntax enable
 set number				" Line numbers
+" set relativenumber		" Line number relative to cursor
 set showtabline=2		" Always show tab line
 
 " " Split windows below and right instead of above and left
@@ -48,6 +43,11 @@ let &listchars="eol:\<Char-0x00ac>,tab:▸\ "
 " Scrolling gives one line at top & bottom
 set scrolloff=1
 
+" No error bell
+set noeb
+
+" Incremental search
+set incsearch
 "" Formating 
 "
 " Set formatting( tabs, column width, tabwidth, etc. ) 
@@ -96,6 +96,19 @@ inoremap {<BS>	<Nop>
 inoremap {<Space><BS>  <Nop>
 inoremap {<Del><BS> { 
 
+inoremap " ""<Left>
+inoremap "<BS>	<Nop>
+
+inoremap ' ''<Left>
+inoremap '<BS>	<Nop>
+
+"retroactivly add parenthesis/brackets in visual mode
+vnoremap <Leader>( <Esc>`<i(<Esc>`>a)<Esc>
+vnoremap <Leader>{ <Esc>`<i{<Esc>`>a}<Esc>
+
+" Escaping parenthesis/brackets/etc.
+inoremap <Leader>f <Esc>/[)}"'>\]]<CR>:noh<CR>a
+
 " C comment starters
 inoremap /**	/**<CR>/<Esc>O
 inoremap /*<Space>	/*<Space><Space>*/ <Left><Left><Left><Left>
@@ -122,16 +135,21 @@ autocmd Filetype vim vnoremap <buffer> <localleader>c	:s/^/"/<CR> :noh<CR>
 "endfunction
 
 " Underlines
-nnoremap <Leader>= yypv$r=o<Esc>
-inoremap <Leader>= <Esc>yypv$r=o
-nnoremap <Leader>- yypv$r-o<Esc>
-inoremap <Leader>- <Esc>yypv$r-o
+nnoremap <Leader>=	yypv$r=<Esc>
+nnoremap <Leader>==	o<Esc>40i=<Esc>
+inoremap <Leader>=	<Esc>yypv$r=o
+inoremap <Leader>==	<Esc>o<Esc>40i=<Esc>o
+
+nnoremap <Leader>-	yypv$r-<Esc>
+nnoremap <Leader>--	o<Esc>40i-<Esc>
+inoremap <Leader>-	<Esc>yypv$r-o
+inoremap <Leader>--	<Esc>o<Esc>40i-<Esc>o
 
 " Delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j     
 endif
-
+" }}}
 
 " Searching {{{
 """"""""""""""""""""
@@ -165,4 +183,4 @@ cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
 
 " }}}
 
-vim: foldmethod=marker 
+" vim: foldmethod=marker 
