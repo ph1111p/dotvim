@@ -12,12 +12,14 @@ endif
 let g:colors_name="obsidian2"
 
 let s:Colors = [
-\'#a082bd','#e0e2e4','#93c763',
+\'#669966','#e0e2e4','#99CC33',
 \'#ffcd22','#ec7600','#ff8409',
-\'#e8e2b7','#d39745','#66747b',
-\'#678cb1','#5899c0','#5ab9be',
+\'#e8e2b7','#FFCC00','#66747b',
+\'#3399CC','#5899c0','#5ab9be',
 \'#293134','#2f393c','#f3db2e',
 \'#dc322f']
+
+"\'#669966','#e0e2e4','#93c763',
 
 " Syntax
 execute "hi Normal  guifg="     . s:Colors[1]  . " guibg=" . s:Colors[12]
@@ -31,17 +33,20 @@ execute "hi Ignore guifg="      . s:Colors[1]
 execute "hi Keyword guifg="     . s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Label guifg="		. s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Operator guifg="    . s:Colors[14]  . " guibg=" . s:Colors[12]
-execute "hi PreProc guifg="     . s:Colors[7]  . " guibg=" . s:Colors[12]
+"execute "hi PreProc guifg="     . s:Colors[7]  . " guibg=" . s:Colors[12]
+execute "hi PreProc guifg="     . s:Colors[0]  . " guibg=" . s:Colors[12]
 execute "hi Repeat guifg="      . s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Special guifg="     . s:Colors[2]  . " guibg=" . s:Colors[12]
 execute "hi Statement guifg="   . s:Colors[2]  . " guibg=" . s:Colors[12]
+"execute "hi Number guifg="      . s:Colors[3]  . " guibg=" . s:Colors[12]
 execute "hi Number guifg="      . s:Colors[3]  . " guibg=" . s:Colors[12]
 execute "hi Boolean guifg="     . s:Colors[11] . " guibg=" . s:Colors[12]
 execute "hi String guifg="		. s:Colors[9]  . " guibg=" . s:Colors[12]
 execute "hi Character guifg="   . s:Colors[5]  . " guibg=" . s:Colors[12]
 execute "hi Title guifg="       . s:Colors[1]  . " guibg=" . s:Colors[12]
 execute "hi Todo guifg="        . s:Colors[11] . " guibg=" . s:Colors[12] . " gui=underline"
-execute "hi Type guifg="        . s:Colors[3]  . " guibg=" . s:Colors[12]
+"execute "hi Type guifg="        . s:Colors[3]  . " guibg=" . s:Colors[12]
+execute "hi Type guifg="        . s:Colors[7]  . " guibg=" . s:Colors[12]
 execute "hi Underline guifg="   . s:Colors[10] . " guibg=" . s:Colors[12]
 
 " Groups

@@ -1,31 +1,8 @@
-" Clean this fucking thing up
-
-" Vundle {{{
-"============
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-"" My Bundles here:
-" original repos on github
-Bundle 'junegunn/vim-easy-align'
-"Bundle 'godlygeek/csapprox'
-"Bundle 'xolox/vim-notes'
-
-" git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
-
-filetype plugin indent on     " required!
-" }}}
+" vim configuration file
+" Phil Lange -- 2014
 
 " Initialization & Appearance {{{ 
-""""""""""""""""""""
+"----------------------------------------
 colorscheme obsidian2
 syntax enable
 set number				" Line numbers
@@ -48,8 +25,9 @@ set noeb
 
 " Incremental search
 set incsearch
-"" Formating 
-"
+
+" Formating 
+"------------
 " Set formatting( tabs, column width, tabwidth, etc. ) 
 set tabstop=4
 set softtabstop=4
@@ -67,7 +45,7 @@ set foldlevelstart=0
 " }}}
 
 " Editing {{{
-"""""""""""""""""""
+"----------------------------------------
 " move cursor to end of line 
 inoremap <Leader>a <Esc>A
 
@@ -123,17 +101,6 @@ autocmd Filetype c vnoremap <buffer> <localleader>nc	:s/\/\//<CR> :noh<CR>
 autocmd Filetype vim nnoremap <buffer> <localleader>c	I"<esc>
 autocmd Filetype vim vnoremap <buffer> <localleader>c	:s/^/"/<CR> :noh<CR>
 
-"" Automatically open '.h' header for c files, if exists
-"autocmd BufAdd *.c :call OpenHeader()
-"function! OpenHeader()
-	"let h_file = substitute(expand('%:t'),".c",".h","")
-	"if filereadable( h_file )
-		"execute "vsplit " . h_file
-	"else
-		"echo "No .h file found"
-	"endif
-"endfunction
-
 " Underlines
 nnoremap <Leader>=	yypv$r=<Esc>
 nnoremap <Leader>==	o<Esc>40i=<Esc>
@@ -152,7 +119,7 @@ endif
 " }}}
 
 " Searching {{{
-""""""""""""""""""""
+"----------------------------------------
 set ignorecase " Make searches case-insensitive...
 set smartcase  " ...unless they contain at least one uppercase character
 
@@ -160,7 +127,7 @@ set smartcase  " ...unless they contain at least one uppercase character
 " }}}
 
 " General hotkeys {{{
-""""""""""""""""""""
+"----------------------------------------
 " Open vimrc
 nnoremap <leader>mv	:e $MYVIMRC
 
@@ -178,8 +145,6 @@ nnoremap <Leader>l	:set list!<return>
 " Open help in a vertical split instead of the default horizontal split
 cabbrev h <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'h')<cr>
 cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
-
-" Open/source vimrc 
 
 " }}}
 
