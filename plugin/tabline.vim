@@ -26,7 +26,7 @@ function! Tabline()
     if numtabwin > 1
         "let tabwinnum = ' ('. numtabwin . ')'
         for j in range(tabpagewinnr(tab, '$')-1)
-            let tabwinnum .= "'"
+            let tabwinnum .= "]"
         endfor
     endif
 

@@ -1,7 +1,4 @@
-"let &fillchars="fold:\<Char-0x00b7>"
 let &fillchars="fold:\-"
-
-"hi! link Folded FoldColumn
 
 if has("folding")
   set foldtext=FoldText()
@@ -34,15 +31,16 @@ if has("folding")
 	endif
 
 	let l:line = ' ' . commentchar . substitute(getline(charline),'^\s*"\?\s*\|\s*"\?\s*{{\*\\s*' . '{\d*\s*', '', 'g')
-	let l:start = strpart('+' . repeat(foldchar, v:foldlevel*2) . l:line, 0, (winwidth(0)*2)/3)
-	let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
+	let l:start = strpart('+-' . repeat(foldchar, indent(charline)-3) . l:line, 0, (winwidth(0)*2)/3)
+	""let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
+	let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^.*\([*}]\)', '\1', '')
 
 	let lines_count = v:foldend - v:foldstart + 1
-	let l:info = '( ' . lines_count . ' lines' . ')'
-	"let l:info = '(' . printf("%10s", lines_count . ' lines') . ')'
+	let l:info = '(' . lines_count . ' lines' . ')'
 	let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
 	let l:width = winwidth(0) - l:lpadding - l:infolen
 
+	"s/^.*\([*}]\)/\1/gc
 	"let l:separator=nr2char(8943)
 	"if has ("win32")
 	"	let l:separator = '…'

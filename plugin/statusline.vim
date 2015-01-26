@@ -8,15 +8,14 @@ let g:loaded_status_vim = 1
 set laststatus=2
 
 " Set insert/everything else highlight color
-set statusline=[%F]
+set statusline=[%f]
 set statusline+=%y
 set statusline+=%m
 set statusline+=%(\ [%R%H%W]%)
 set statusline+=[%{mode()}]
 set statusline+=%=
-set statusline+=\ Row:[%4l/%-4L] 
-set statusline+=\ Col:[%2c]
-set statusline+=\ Char[0x%B]
+set statusline+=\ Ln:[%l/%L] 
+set statusline+=\ Col:[%2v]
 
 " Change color of the status line on insert
 hi link User1 CursorIM
