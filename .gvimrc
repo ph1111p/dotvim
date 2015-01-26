@@ -17,8 +17,12 @@ if has ("gui_running")
 	" Set font
 	if has ("win32")
 		set guifont=Consolas:h10
-	else
-		set guifont=Source\ Code\ Pro\ light:h13
+  elseif has("unix")
+    if system('uname')=~'Darwin'
+      set guifont=Source\ Code\ Pro\ light:h13
+    else
+      set guifont=Consolas:h10
+    endif
 	endif
 
 	" Get rid of annoying cursor behavior
