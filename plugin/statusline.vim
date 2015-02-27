@@ -18,12 +18,12 @@ set statusline+=\ Ln:[%l/%L]
 set statusline+=\ Col:[%2v]
 
 " Change color of the status line on insert
-hi link User1 CursorIM
-hi link User2 StatusLine
+"hi link User1 CursorIM
+"hi link User2 StatusLine
 
 if version >= 700
-	au InsertEnter * hi! link StatusLine User1
-	au InsertLeave * hi! link StatusLine User2
+"	au InsertEnter * hi! link StatusLine User1
+"	au InsertLeave * hi! link StatusLine User2
 "  au InsertEnter * hi StatusLine term=reverse ctermfg=0 ctermbg=14 gui=reverse guifg=#b58900 
 "  au InsertLeave * hi StatusLine term=reverse cterm=bold,reverse ctermfg=0 ctermbg=7 gui=reverse guifg=#93a1a1 guibg=#073642
 endif
