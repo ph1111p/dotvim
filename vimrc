@@ -7,15 +7,19 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
 " Other plugins
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'nachumk/systemverilog.vim'
+
+call vundle#end()
+filetype plugin indent on
+"filetype plugin  on
 
 " Plugin settings 
 " ===============
@@ -31,7 +35,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Initialization & Appearance {{{ 
 "----------------------------------------
 syntax enable
-colorscheme obsidian2
+colorscheme apprentice
 filetype plugin indent on
 set number					" Line numbers
 set showtabline=2			" Always show tab line
@@ -40,6 +44,8 @@ set diffopt+=vertical		" 'Diff'ing always set to vertical
 set scrolloff=1 " Scrolling gives one line at top & bottom
 set noeb " No error bell
 let &listchars="eol:\<Char-0x00ac>,tab:▸\ " " Invisible chars
+
+source ~/.vim/.gvimrc
 
 " Formating 
 "------------
@@ -101,10 +107,6 @@ inoremap '<BS>	<Nop>
 vnoremap <Leader>( <Esc>`>a)<Esc>`<i(<Esc>
 vnoremap <Leader>{ <Esc>`>a}<Esc>`<i{<Esc>
 
-" Escaping parenthesis/brackets/etc.
-"inoremap <Leader>f <Esc>/[)}"'>\]]<CR>:noh<CR>a
-inoremap FF <Esc>/[)}"'>\]]<CR>:noh<CR>a
-
 " C comment starters
 inoremap /*<Space>	/*<Space><Space>*/<Left><Left><Left>
 inoremap /*<Return>	/**<Return><Return>/<Esc><Up>A<Space>
@@ -159,5 +161,8 @@ cabbrev h <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'h')<cr>
 cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
 
 " }}}
+
+" file specific options
+autocmd BufRead,BufNewFile  *.sv setlocal sw=4 ts=4 foldmethod=indent
 
 " vim: foldmethod=marker 
