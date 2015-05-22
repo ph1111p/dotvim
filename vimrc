@@ -31,7 +31,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Initialization & Appearance {{{ 
 "----------------------------------------
 syntax enable
-colorscheme obsidian2
+colorscheme apprentice
 filetype plugin indent on
 set number					" Line numbers
 set showtabline=2			" Always show tab line
