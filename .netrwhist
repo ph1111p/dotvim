@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='scp://plange4@linux.ews.illinois.edu/'
+let g:netrw_dirhist_2='scp://plange4@linux.ews.illinois.edu/plange4/'
+let g:netrw_dirhist_3='scp://plange4@linux.ews.illinois.edu/ece411/'
+let g:netrw_dirhist_4='scp://plange4@remlnx.ews.illinois.edu/ece411/'
+let g:netrw_dirhist_5='/Users/PhilLange/Development/ece411/.git'

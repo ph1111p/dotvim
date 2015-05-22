@@ -7,20 +7,16 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
-" Other plugins
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'nachumk/systemverilog.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
-filetype plugin indent on
-"filetype plugin  on
-
 " Plugin settings 
 " ===============
 " YouCompleteMe
@@ -45,14 +41,12 @@ set scrolloff=1 " Scrolling gives one line at top & bottom
 set noeb " No error bell
 let &listchars="eol:\<Char-0x00ac>,tab:▸\ " " Invisible chars
 
-source ~/.vim/.gvimrc
-
 " Formating 
 "------------
 " Set formatting( tabs, column width, tabwidth, etc. ) 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab			" Tabs, *not* spaces
 set smartindent
 set textwidth=79
@@ -66,6 +60,14 @@ set foldmethod=syntax
 set foldlevelstart=0
 
 " }}}
+
+" Additional paths {{{ 
+"----------------------------------------
+
+" LPC projects
+
+
+"}}}
 
 " Editing {{{
 "----------------------------------------
