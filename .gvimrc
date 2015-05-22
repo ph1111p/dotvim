@@ -27,7 +27,7 @@ if has ("gui_running")
 
 	" Get rid of annoying cursor behavior
 	set guicursor=n-v-c:block-Cursor
-	set guicursor=i-ci:block-CursorIM
+	set guicursor=i-ci:block-lCursor
 	set guicursor=a:blinkon0
 
 	" To make normal things work
