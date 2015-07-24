@@ -54,7 +54,7 @@ if &t_Co >= 256 || has('gui_running')
   hi Type             ctermbg=NONE ctermfg=103  guibg=NONE    guifg=#8787af cterm=NONE           gui=NONE
   hi Underlined       ctermbg=NONE ctermfg=66   guibg=NONE    guifg=#5f8787 cterm=underline      gui=underline
 
-  hi LineNr           ctermbg=234  ctermfg=242  guibg=#1c1c1c guifg=#6c6c6c cterm=NONE           gui=NONE
+  hi LineNr           ctermbg=236  ctermfg=242  guibg=#1c1c1c guifg=#6c6c6c cterm=NONE           gui=NONE
   hi NonText          ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
 
   hi Pmenu            ctermbg=238  ctermfg=250  guibg=#444444 guifg=#bcbcbc cterm=NONE           gui=NONE
@@ -86,8 +86,8 @@ if &t_Co >= 256 || has('gui_running')
   hi Visual           ctermbg=110  ctermfg=235  guibg=#8fafd7 guifg=#262626 cterm=NONE           gui=NONE
   hi VisualNOS        ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline      gui=underline
 
-  hi FoldColumn       ctermbg=234  ctermfg=242  guibg=#1c1c1c guifg=#6c6c6c cterm=NONE           gui=NONE
-  hi Folded           ctermbg=234  ctermfg=242  guibg=#1c1c1c guifg=#6c6c6c cterm=NONE           gui=NONE
+  hi FoldColumn       ctermbg=236  ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
+  hi Folded           ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
 
   hi VertSplit        ctermbg=238  ctermfg=238  guibg=#444444 guifg=#444444 cterm=NONE           gui=NONE
   hi WildMenu         ctermbg=110  ctermfg=235  guibg=#8fafd7 guifg=#262626 cterm=NONE           gui=NONE
@@ -105,7 +105,7 @@ if &t_Co >= 256 || has('gui_running')
   hi Search           ctermbg=108  ctermfg=235  guibg=#87af87 guifg=#262626 cterm=NONE           gui=NONE
 
   hi Directory        ctermbg=NONE ctermfg=73   guibg=NONE    guifg=#5fafaf cterm=NONE           gui=NONE
-  hi MatchParen       ctermbg=NONE ctermfg=229  guibg=NONE    guifg=#ffffaf cterm=NONE           gui=NONE
+  hi MatchParen       ctermbg=234  ctermfg=229  guibg=#1c1c1c guifg=#ffffaf cterm=NONE           gui=NONE
 
   hi SpellBad         ctermbg=NONE ctermfg=131  guibg=NONE    guifg=NONE    cterm=undercurl      gui=undercurl guisp=#af5f5f
   hi SpellCap         ctermbg=NONE ctermfg=73   guibg=NONE    guifg=NONE    cterm=undercurl      gui=undercurl guisp=#5fafaf
@@ -168,8 +168,8 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   hi Visual           ctermbg=12          ctermfg=0           cterm=NONE
   hi VisualNOS        ctermbg=NONE        ctermfg=NONE        cterm=underline
 
-  hi FoldColumn       ctermbg=0           ctermfg=8           cterm=NONE
-  hi Folded           ctermbg=0           ctermfg=8           cterm=NONE
+  hi FoldColumn       ctermbg=NONE        ctermfg=8           cterm=NONE
+  hi Folded           ctermbg=NONE        ctermfg=8           cterm=NONE
 
   hi VertSplit        ctermbg=8           ctermfg=8           cterm=NONE
   hi WildMenu         ctermbg=12          ctermfg=0           cterm=NONE
@@ -186,6 +186,7 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   hi Search           ctermbg=2           ctermfg=0           cterm=NONE
 
   hi Directory        ctermbg=NONE        ctermfg=14          cterm=NONE
+  hi MatchParen       ctermbg=0           ctermfg=11          cterm=NONE
 
   hi SpellBad         ctermbg=NONE        ctermfg=1           cterm=undercurl
   hi SpellCap         ctermbg=NONE        ctermfg=3           cterm=undercurl
@@ -226,6 +227,9 @@ hi link htmlEndTag         htmlTagName
 hi link htmlLink           Function
 hi link htmlSpecialTagName htmlTagName
 hi link htmlTag            htmlTagName
+hi link xmlTag             Statement
+hi link xmlTagName         Statement
+hi link xmlEndTag          Statement
 
 hi link diffBDiffer        WarningMsg
 hi link diffCommon         WarningMsg
